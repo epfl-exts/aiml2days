@@ -10,10 +10,11 @@ This repository contains the material for the hands-on part of the 2 day worksho
 
 
 In this part of the workshop we you will learn about text classification as a supervised learning problem. You will dive into the realm of natural language processing and learn how machines can analyze and learn from text data and text embeddings. 
-We will use the [SpamAssassin](https://spamassassin.apache.org/) public email corpus. This dataset contains ~6'000 labeled emails with a ~30% spam ratio. The dataset has been downloaded for you and is available in the data folder. 
-We want to build a spam detector which, given examples of spam emails and examples of regular emails, learns how to flag new emails as spam or non-spam. We define this problem as a classification task and solve it using a Logistic Regression classifier. 
+We will use the [SpamAssassin](https://spamassassin.apache.org/) public email corpus. This dataset contains ~6'000 labeled emails. The dataset has been downloaded for you and is available in the data folder. 
 
+Our aim is to build a spam detector which, given examples of spam emails and examples of regular emails, learns how to flag new emails as spam or non-spam. We will prepare the data, explore it and phrase our problem as a classification task which we solve using a Logistic Regression classifier. 
 
+We will explore and compare various features space and machine learning approaches. The use of spam emails is for demonstration and learning purpose as it is a text-based example that everyone is easily familiar with. Similarly the use of a Logistic Regression model keeps things simple and interate fast through different approaches. This set up allows us to highlight different stages of developing a machine learning application and the decision making processes involved along the way.
 
 ## Hands-On Session
 
