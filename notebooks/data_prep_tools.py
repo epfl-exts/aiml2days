@@ -695,7 +695,7 @@ def extract_text_features(df, vectorizer="count", with_labels=True, store=True):
     # Save to csv
     if store:
         text_features_df.to_csv("data/text_features" + file_add + ".csv", index=False)
-        print("Text features saved to data/text_features" + file_add + ".csv")
+        print("Text features saved to 'data/text_features" + file_add + ".csv'")
 
     return text_features_df
 

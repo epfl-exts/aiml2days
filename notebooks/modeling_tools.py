@@ -671,7 +671,7 @@ def error_analysis(
     """
 
     # Load cleaned data with orignal "text" and with "text cleaned"
-    df_cleaned = pd.read_csv("data/df_cleaned", index_col=0)
+    df_cleaned = pd.read_csv("data/df_cleaned.csv", index_col=0)
     df_cleaned_test = df_cleaned.loc[df_test.index]
 
     # Setup test feature and test labels
