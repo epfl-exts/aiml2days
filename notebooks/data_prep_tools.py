@@ -546,7 +546,7 @@ def clean_corpus(df, remove_duplicates_and_empty=False, verbose=True):
             print("Duplicates and empty texts were removed")
         print("Number of samples:", df.shape[0])
 
-    df.to_csv("data/df_cleaned", index=True)
+    df.to_csv("data/df_cleaned.csv", index=True)
 
     return df
 
@@ -563,12 +563,12 @@ def load_cleaned_text():
     and returns a DataFrame with the cleaned text.
     """
     # Check if file exists
-    if not os.path.exists("data/df_cleaned"):
+    if not os.path.exists("data/df_cleaned.csv"):
         print("Cleaned text file not found. Please run clean_corpus() first.")
         return None
     else:
         # Load cleaned text from csv
-        df = pd.read_csv("data/df_cleaned", index_col=0)
+        df = pd.read_csv("data/df_cleaned.csv", index_col=0)
         print(f"{df.shape[0]} cleaned emails loaded")
         print("Data includes labels in the column 'spam_label'")
         print(f"The data set has {df.shape[0]} rows, {df.shape[1]} columns")
@@ -690,7 +690,7 @@ def extract_text_features(df, vectorizer="count", with_labels=True, store=True):
     if with_labels:
         text_features_df["spam_label"] = spam_labels
 
-    display_column_names(text_features_df)
+    # display_column_names(text_features_df)
 
     # Save to csv
     if store:
@@ -726,20 +726,41 @@ def load_feature_space(features="text", no_labels=False):
         df = pd.read_csv("data/num_features.csv")
         print("Numeric features loaded")
     elif features == "text":
+        # Try load tfidf version first, then count version, else ask to run extract_text_features()
         # Load text features
-        df = pd.read_csv("data/text_features.csv")
-        print("Text features loaded")
+        if os.path.exists("data/text_features_tfidf.csv"):
+            df = pd.read_csv("data/text_features_tfidf.csv")
+            print("Text features (tfidf) loaded")
+        elif os.path.exists("data/text_features_count.csv"):
+            df = pd.read_csv("data/text_features_count.csv")
+            print("Text features (count) loaded")
+        else:
+            print(
+                "No text features file found. Please run extract_text_features() first."
+            )
+            return None
+
     elif features == "num_text":
         # Load numeric features
         num_features_df = pd.read_csv("data/num_features.csv")
         # Load text features
-        text_features_df = pd.read_csv("data/text_features.csv")
+        if os.path.exists("data/text_features_tfidf.csv"):
+            text_features_df = pd.read_csv("data/text_features_tfidf.csv")
+            print("Text features (tfidf) loaded")
+        elif os.path.exists("data/text_features_count.csv"):
+            text_features_df = pd.read_csv("data/text_features_count.csv")
+            print("Text features (count) loaded")
+        else:
+            print(
+                "No text features file found. Please run extract_text_features() first."
+            )
+            return None
         # Merge the two frames
         df = pd.concat(
             [num_features_df.drop("spam_label", axis=1), text_features_df], axis=1
         )
         print("Numeric and text features loaded")
-    if features == "embedding":
+    elif features == "embedding":
         # Load email embeddings
         df = pd.read_csv("data/email_embeddings.csv")
         print("Email embeddings loaded")
