@@ -20,9 +20,9 @@ We want to build a spam detector which, given examples of spam emails and exampl
 To get started with the hands-on session you have the following options. Choose one by clicking on the badges below:
 
 
-[![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/epfl-exts/aiml2days/blob/main/notebooks/data preparation.ipynb) 
+[![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/epfl-exts/aiml2days/blob/main/notebooks/data_preparation.ipynb) 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/epfl-exts/aiml2days/main)
-[![Offline](https://img.shields.io/badge/Offline_View-Open-Blue.svg)](https://github.com/epfl-exts/aiml2days/blob/main/static/data preparation_stat.ipynb)
+[![Offline](https://img.shields.io/badge/Offline_View-Open-Blue.svg)](https://github.com/epfl-exts/aiml2days/blob/main/static/data_preparation_stat.ipynb)
 
 - **Colab**: Open the jupyter notebook in **Google Colab** to run the codes interactively on the cloud (recommended for this workshop). Note that you need to have a Google account to run the code in Google Colab.
 
