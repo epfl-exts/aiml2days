@@ -1,7 +1,7 @@
 <img src="static/Logo-FCUE-2019-cmjn.png" width="180px" align="right">
 
 
-### Applications of Machine Learning
+### AI and ML Essentials - hands-on part
 
 &nbsp;
 &nbsp;
